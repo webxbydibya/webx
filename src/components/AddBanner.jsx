@@ -47,6 +47,7 @@ const AdBanner = () => {
   }, []);
 
   return (
+    <div>
     <ins
       className="adsbygoogle"
       style={{ display: 'block', textAlign: 'center' }}
@@ -56,6 +57,7 @@ const AdBanner = () => {
       data-full-width-responsive="true"
       ref={adRef}
     />
+    </div>
   );
 };
 
