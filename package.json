@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ctrl/react-adsense": "^1.8.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.0.2",
     "react": "^18.3.1",
+    "react-adsense": "^0.1.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.5.3"
   },

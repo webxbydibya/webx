@@ -1,5 +1,5 @@
-import React from 'react';
 import { Container, Typography, Box, Paper } from '@mui/material';
+import AdBanner from './components/AddBanner.jsx';
 
 function Page1() {
   return (
@@ -11,7 +11,7 @@ function Page1() {
         Welcome to WebX, where we explore the future of web technologies and their intersections with AI, machine learning, and machine technologies 🌐.
       </Typography>
 
-      {/* Web Technology Section */}
+      <AdBanner />
       <Section title="Web Technology" emoji="💻">
         <Typography paragraph sx={{ color: '#424242' }}>
           The world of web development has witnessed incredible growth over the last two decades, driven by rapid advancements in both client-side and server-side technologies. Web development today incorporates a wide array of tools and technologies that allow developers to build interactive, responsive, and dynamic websites and web applications.
@@ -30,7 +30,7 @@ function Page1() {
         </Typography>
       </Section>
 
-      {/* AI & ML with Web Section */}
+      <AdBanner />
       <Section title="AI & ML with Web" emoji="🤖">
         <Typography paragraph sx={{ color: '#424242' }}>
           Artificial Intelligence (AI) and Machine Learning (ML) are revolutionizing the way websites and web applications operate. In the past, websites were static and largely informational, but with AI and ML, they have become more dynamic and user-centric. These technologies allow websites to learn from user behavior, predict preferences, and offer personalized experiences that adapt over time.
@@ -52,7 +52,7 @@ function Page1() {
         </Typography>
       </Section>
 
-      {/* Machine Technology Section */}
+      <AdBanner />
       <Section title="Machine Technology" emoji="🦾">
         <Typography paragraph sx={{ color: '#424242' }}>
           Machine technology is an umbrella term that refers to the use of machines, robots, and automated systems to perform tasks that traditionally required human intervention. This field has seen remarkable progress in recent years, with the integration of AI and ML further enhancing the capabilities of machines.
@@ -74,7 +74,7 @@ function Page1() {
         </Typography>
       </Section>
 
-      {/* Web Deployment Companies Section */}
+      <AdBanner />
       <Section title="Web Deployment Companies" emoji="🌍">
         <Typography paragraph sx={{ color: '#424242' }}>
           Deploying a web application is a critical step in the development process. It involves making the application available to users via the internet, ensuring it can handle traffic, and providing the necessary resources for scaling and performance. Several companies specialize in web hosting and deployment services, offering everything from basic hosting to sophisticated cloud computing platforms.
