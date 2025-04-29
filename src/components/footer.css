@@ -1,0 +1,14 @@
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer_setup{
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(8, 4, 54);
+}
+
+.footer_setup a:hover{
+    text-decoration: underline;
+}
