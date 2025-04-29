@@ -12,3 +12,18 @@ a{
     color: blue;
     text-decoration: none;
 }
+
+.p_1{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.p_2{
+    font-size: 16px;
+    color: black;
+}
+.p_3{
+    font-size: 14px;
+    color: black;
+}   

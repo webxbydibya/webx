@@ -1,41 +1,23 @@
-import { Grid, Typography, Link, Box } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Grid, Typography, Box } from '@mui/material';
 
 import './privacy.css';
 
 export default function Privacy() {
   return (
-    <Grid container spacing={2} 
+      
+      <Grid item xs={12} 
       sx={{ 
-        padding: '20px', 
-        backgroundColor: '#f9f9f9', 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'flex-start', 
-        flexDirection: 'column',
-      }}>
-      
-      <Grid item xs={12}>
-        <nav className='navbar_setup'>
-          <Link component={RouterLink} to="#pri" sx={{ marginLeft: '20px' }}>
-            WebX Privacy Policy
-          </Link>
-          <Link component={RouterLink} to="#ndc" sx={{ marginLeft: '20px' }}>
-            Introduction
-          </Link>
-          <Link component={RouterLink} to="#sac" sx={{ marginLeft: '20px' }}>
-            Scope and Consent
-          </Link>
-          <Link component={RouterLink} to="#dsa" sx={{ marginLeft: '20px' }}>
-            Data Security and Access
-          </Link>
-          <Link component={RouterLink} to="#ads" sx={{ marginLeft: '20px' }}>
-            Ads and Cookies
-          </Link>
-        </nav>
-      </Grid>
-      
-      <Grid item xs={12}>
+        width: {
+          xs: '98vw', 
+          sm: '80vw', 
+          md: '70vw', 
+          lg: '60vw', 
+          xl: '50vw'
+        }, 
+        alignContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center', 
+        margin: '0 auto'}}>
         <Box 
           sx={{ 
             padding: '20px', 
@@ -51,13 +33,14 @@ export default function Privacy() {
             gutterBottom 
             sx={{ textAlign: 'left', color: '#000' }} 
             id="pri">
+            <p className='p_2'>
             Effective Date: April 29, 2025 <br />
-            Last Updated: April 29, 2025 <br />
-            Welcome to WebX. Your privacy is very important to us. This Privacy Policy is intended to 
+            Last Updated: April 29, 2025 <br /></p>
+            <p className='p_3'>Welcome to WebX. Your privacy is very important to us. This Privacy Policy is intended to 
             help you understand how we use information on our website. WebX does not collect any personal 
             information from visitors. However, we do display advertisements through Google AdSense, which may 
             use cookies and similar technologies to serve relevant ads. <br />
-            Please take a moment to read through this policy to understand how it applies to your visit to our website.
+            Please take a moment to read through this policy to understand how it applies to you.</p>
           </Typography>
 
           <Typography 
@@ -66,8 +49,8 @@ export default function Privacy() {
             gutterBottom 
             sx={{ textAlign: 'left', color: '#000' }} 
             id="ndc">
-            1. **No Personal Data Collection** <br />
-            At WebX, we do not ask for, store, or collect any personal data such as: <br />
+            <p className='p_1'>1. No Personal Data Collection <br /></p>
+            <p className='p_3'>At WebX, we do not ask for, store, or collect any personal data such as: <br />
             <ul>
               <li>Your name</li>
               <li>Email address</li>
@@ -79,7 +62,7 @@ export default function Privacy() {
             Your browsing on WebX is entirely anonymous from our side. 
             We are committed to keeping things simple, fast, and privacy-friendly. Our primary focus is on sharing content related 
             to web development, technologies, companies, and tools—not tracking users. <br />
-            By using WebX, you agree to use our services without the need to share personal data.
+            By using WebX, you agree to use our services without the need to share personal data.</p>
           </Typography>
 
           <Typography 
@@ -88,12 +71,12 @@ export default function Privacy() {
             gutterBottom 
             sx={{ textAlign: 'left', color: '#000' }} 
             id="sac">
-            2. **Scope and Consent** <br />
+            <p className='p_1'>2. Scope and Consent <br /></p><p className='p_3'>
             By accessing WebX, you consent to this Privacy Policy. WebX may change, update, or modify this policy as necessary. 
             Whenever we update this Privacy Policy, we will update the “Last Updated” date at the top of the page. We encourage 
             users to regularly review this page to stay informed about how we are protecting your privacy. <br />
             We do not share your personal information with third parties unless required by law. We respect your rights to privacy 
-            and are committed to protecting your data.
+            and are committed to protecting your data.</p>
           </Typography>
 
           <Typography 
@@ -102,12 +85,14 @@ export default function Privacy() {
             gutterBottom 
             sx={{ textAlign: 'left', color: '#000' }} 
             id="dsa">
-            3. **Data Security and Access** <br />
+            <p className='p_1'>3. Data Security and Access <br /> </p>
+            <p className='p_3'>
             WebX ensures that all necessary measures are in place to protect your information. Since we do not collect personal 
             data, the only information that may be accessed are cookies and anonymized data that are used for advertising purposes. 
             Google AdSense’s cookies are used to show relevant ads based on your browsing history, but we do not store or track 
             personal information. <br />
             We encourage users to be mindful of their own privacy settings and the information they share while browsing the web.
+            </p>
           </Typography>
 
           <Typography 
@@ -116,7 +101,8 @@ export default function Privacy() {
             gutterBottom 
             sx={{ textAlign: 'left', color: '#000' }} 
             id="ads">
-            4. **Ads and Cookies** <br />
+            <p className='p_1'>4. Ads and Cookies </p>
+            <p className='p_3'>
             Although WebX does not collect data directly, we display ads via Google AdSense, which may use cookies and automated 
             data collection to deliver personalized or non-personalized advertisements. <br />
             Google, as a third-party vendor, uses cookies to: <br />
@@ -128,7 +114,7 @@ export default function Privacy() {
             </ul>
             This data is managed by Google and its advertising partners, not WebX. <br />
             You can opt-out of personalized ads at any time by visiting: <br />
-            👉 <a href="https://www.google.com/settings/ads">Google Ads</a>
+            👉 <a href="https://www.google.com/settings/ads">Google Ads</a></p>
           </Typography>
 
           <Typography 
@@ -137,13 +123,14 @@ export default function Privacy() {
             gutterBottom 
             sx={{ textAlign: 'left', color: '#000' }} 
             id="pa">
-            5. **Personalized Ads** <br />
+            <p className='p_1'>5. Personalized Ads </p>
+            <p className='p_3'>
             If you are in a region where Google shows personalized ads, they may use your online activity (browsing history, 
             interactions, etc.) to serve you more relevant ads. You can control or opt-out of personalized ads at any time by visiting: <br />
             👉 <a href="https://www.google.com/settings/ads">Google Ads</a> <br />
-            6. **Non-Personalized Ads** <br />
+            6. Non-Personalized Ads <br />
             In regions where user consent is required (e.g., the EU), Google may serve non-personalized ads based on general 
-            data like your country and device type, but not your personal browsing behavior.
+            data like your country and device type, but not your personal browsing behavior.</p>
           </Typography>
 
           <Typography 
@@ -151,14 +138,15 @@ export default function Privacy() {
             component="h4" 
             gutterBottom 
             sx={{ textAlign: 'left', color: '#000' }}>
-            7. **Updates and Changes** <br />
+            <p className='p_1'>7. Updates and Changes </p>
+            <p className='p_3'>
             WebX reserves the right to update or modify this Privacy Policy at any time. Any changes to this policy will be reflected 
             on this page, and the updated policy will be effective immediately upon posting. We recommend reviewing this page periodically 
             to stay informed about our privacy practices. <br />
             By continuing to use WebX after any changes to this policy, you accept those changes and agree to the updated terms.
+            </p>
           </Typography>
         </Box>
       </Grid>
-    </Grid>
   );
 }

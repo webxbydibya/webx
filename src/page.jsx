@@ -10,12 +10,16 @@ import TermsAndConditions from './terms.jsx';
 import ContactUs from './contact.jsx';
 import Error from './error.jsx';
 import AdBanner from './components/AddBanner.jsx';
-
+import About from './about.jsx';
 export default function Page() {
     return (
         <Router>
             <Header />
+            <br />
+            <AdBanner />
+            <br />
                 <Routes>
+                <Route path="/" element={<About />} />
                 <Route path="/:id" element={<Page1 />} />
                 <Route path="/:id/2" element={<Page2 />} />
                 <Route path="/:id/3" element={<Page3 />} />
@@ -26,7 +30,9 @@ export default function Page() {
             </Routes>
             <hr />
             <AdBanner />
+            <br /><br />
             <Footer />
+            <br />
         </Router>
     );
 }
