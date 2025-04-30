@@ -11,6 +11,7 @@ import ContactUs from './contact.jsx';
 import Error from './error.jsx';
 import AdBanner from './components/AddBanner.jsx';
 import About from './about.jsx';
+import VideoDownload from './maindonlowedpage.jsx';
 export default function Page() {
     return (
         <Router>
@@ -26,6 +27,7 @@ export default function Page() {
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/contact" element={<ContactUs />} />
+                <Route path="/:id/download" element={<VideoDownload />} />
                 <Route path="*" element={<Error />} />
             </Routes>
             <hr />

@@ -1,12 +1,58 @@
-import { Container, Typography, Box, Paper } from '@mui/material';
+import { Container, Typography, Box, Paper, Button } from '@mui/material';
 import AdBanner from './components/AddBanner.jsx';
+import { useState, useEffect} from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function Page1() {
+  const [seconds, setSeconds] = useState(30); 
+  const [showButton, setShowButton] = useState(false);
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const handleNavigate = () => {
+    navigate(`/${id}/2`, { state: { secretCode: "1:Qwes33876" } });
+  };
+
+  useEffect(() => {
+    // Start countdown on page load
+    if (seconds > 0) {
+      const timer = setInterval(() => {
+        setSeconds((prevSeconds) => prevSeconds - 1); // Decrease the timer by 1 every second
+      }, 1000);
+      return () => clearInterval(timer); // Cleanup timer when component unmounts
+    } else {
+      setShowButton(true); // Show the button once the countdown reaches 0
+    }
+  }, [seconds]);
+
   return (
     <Container maxWidth="sm" sx={{ padding: 2, backgroundColor: '#f4f4f4' }}>
       <Typography variant="h3" component="h1" align="center" gutterBottom sx={{ color: '#1e88e5' }}>
         WebX: Revolutionizing the Digital World 🚀
       </Typography>
+      <br /><AdBanner /><br />
+      <br /><AdBanner /><br />
+      <Box
+        sx={{
+          padding: "40px",
+          backgroundColor: "#1e1e1e",
+          borderRadius: "15px",
+          boxShadow: 10,
+          textAlign: "center",
+        }}>
+          <Typography
+            variant="h5"
+            sx={{
+              color: "#fff",
+              fontWeight: "bold",
+              marginBottom: "20px",
+            }}>
+              {showButton ? "Scrool Down and Clicked the button" : `Wait for ${seconds} seconds to unlock the button...`}
+          </Typography>
+        </Box>
+        <br /><AdBanner /><br />
+        <br /><AdBanner /><br />
+
       <Typography variant="h6" align="center" paragraph sx={{ color: '#757575' }}>
         Welcome to WebX, where we explore the future of web technologies and their intersections with AI, machine learning, and machine technologies 🌐.
       </Typography>
@@ -88,6 +134,45 @@ function Page1() {
         <Typography paragraph sx={{ color: '#424242' }}>
           <strong>Netlify</strong> has emerged as a powerful platform for deploying static websites and modern web applications. It offers continuous deployment and integrates with Git repositories, ensuring that changes are automatically deployed as soon as they are pushed to a repository. With its simple setup and fast CDN delivery, Netlify has become a go-to platform for developers building JAMstack applications.
         </Typography>
+
+        <br /><AdBanner /><br />
+        <br /><AdBanner /><br />
+
+        <Box
+        sx={{
+          padding: "40px",
+          backgroundColor: "#1e1e1e",
+          borderRadius: "15px",
+          boxShadow: 10,
+          textAlign: "center",
+        }}>
+          
+        {showButton && (
+          <Button
+            variant="contained"
+            onSubmit={handleNavigate}
+            onClick={handleNavigate}
+            sx={{
+              padding: "20px 40px",
+              fontSize: "16px",
+              backgroundColor: "#ff5722",
+              borderRadius: "50px",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              '&:hover': {
+                backgroundColor: '#ff4500',
+                transform: 'scale(1.05)',
+              },
+            }}
+          >
+            Unlock Button
+          </Button>
+        )}
+        </Box>
+
+        <br /><AdBanner /><br />
+        <br /><AdBanner /><br />
+        
         <Typography paragraph sx={{ color: '#424242' }}>
           <strong>Vercel</strong> is a cloud platform optimized for deploying front-end applications built with JavaScript frameworks like React, Next.js, and others. Vercel offers serverless functions, making it ideal for developers looking to create fast, scalable, and cost-effective web applications. Its integration with Git repositories allows for seamless deployment and automatic scaling.
         </Typography>

@@ -1,5 +1,9 @@
-import { Container, Typography, Box, Paper } from '@mui/material';
+import { Container, Typography, Box, Paper, Button } from '@mui/material';
 import AdBanner from './components/AddBanner.jsx';
+
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 const Section = ({ title, children, emoji }) => (
   <Box sx={{ marginBottom: 4 }}>
     <Typography variant="h4" gutterBottom sx={{ color: '#1976d2' }}>
@@ -12,11 +16,72 @@ const Section = ({ title, children, emoji }) => (
 );
 
 export default function WebXTechMegaPage() {
+
+  const VALID_SECRET = '1:Qwes33876'; 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [seconds, setSeconds] = useState(30); // Countdown duration
+  const [showButton, setShowButton] = useState(false);
+
+  const secret = location.state?.secretCode;
+
+  
+  useEffect(() => {
+    if (!secret || secret !== VALID_SECRET) {
+      navigate(`/${id}`);
+    }
+  }, [secret, navigate, id]);
+
+  // ⏳ Countdown logic
+  useEffect(() => {
+    if (secret === VALID_SECRET && seconds > 0) {
+      const timer = setInterval(() => {
+        setSeconds((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    } else if (secret === VALID_SECRET && seconds <= 0) {
+      setShowButton(true);
+    }
+  }, [seconds, secret]);
+
+  
+  if (!secret || secret !== VALID_SECRET) return null;
+
+  const handleNavigate = () => {
+    navigate(`/${id}/download`, { state: { secretCode: "1:Qwes33876" } });
+  };
+
+  
   return (
     <Container maxWidth="md" sx={{ padding: 2 }}>
       <Typography variant="h3" align="center" gutterBottom sx={{ color: '#0d47a1' }}>
         WebX: The Future of Technology 🚀
       </Typography>
+      <br />
+      <AdBanner />
+      <br />
+      <Box
+        sx={{
+          padding: "40px",
+          backgroundColor: "#1e1e1e",
+          borderRadius: "15px",
+          boxShadow: 10,
+          textAlign: "center",
+        }}>
+          <Typography
+            variant="h5"
+            sx={{
+              color: "#fff",
+              fontWeight: "bold",
+              marginBottom: "20px",
+            }}>
+              {showButton ? "Scrool Down and Clicked the button" : `Wait for ${seconds} seconds to unlock the button...`}
+          </Typography>
+        </Box><br />
+        <AdBanner /><br />
+        <AdBanner /><br />
+
       <Typography variant="body1" paragraph align="center">
         Welcome to WebX, your ultimate destination for everything tech! Dive deep into the transformative world of web technologies, AI, blockchain, quantum computing, and beyond. This page explores modern tech trends in over 50,000 words, designed for mobile-first reading and ease of navigation. 🌐📱
       </Typography>
@@ -91,6 +156,43 @@ export default function WebXTechMegaPage() {
         </Typography>
       </Section>
       <AdBanner />
+      <br />
+      <AdBanner />
+      <br /><br />
+      <Box
+        sx={{
+          padding: "40px",
+          backgroundColor: "#1e1e1e",
+          borderRadius: "15px",
+          boxShadow: 10,
+          textAlign: "center",
+        }}>
+          
+        {showButton && (
+          <Button
+            variant="contained"
+            onSubmit={handleNavigate}
+            onClick={handleNavigate}
+            sx={{
+              padding: "20px 40px",
+              fontSize: "16px",
+              backgroundColor: "#ff5722",
+              borderRadius: "50px",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              '&:hover': {
+                backgroundColor: '#ff4500',
+                transform: 'scale(1.05)',
+              },
+            }}
+          >
+            Unlock Button
+          </Button>
+        )}
+        </Box>
+        <br /><br />
+        <AdBanner />
+        <br />
 
       <Section title="11. Future of Technology" emoji="🔮">
         <Typography paragraph>
